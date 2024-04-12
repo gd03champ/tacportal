@@ -27,6 +27,8 @@
 /client/yarn-debug.log*
 /client/yarn-error.log*
 
+/client/.firebase/*
+
 
 # Node.js
 /server/node_modules/
