@@ -98,7 +98,8 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 
   const response = { 
     filename: req.file.filename, 
-    url: `http://localhost:${port}/static/documents/${req.file.filename}` };
+    //url: `http://localhost:${port}/static/documents/${req.file.filename}` };
+    url: `https://tacportal.onrender.com/static/documents/${req.file.filename}` };
 
   res.json(response);
 });
