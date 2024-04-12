@@ -19,7 +19,7 @@ import {
   UserOutlined, HomeOutlined, AppstoreOutlined, FileAddOutlined, 
   LogoutOutlined, LoginOutlined, UserAddOutlined, EditOutlined
 } from '@ant-design/icons';
-import { Layout, Menu, theme, Breadcrumb, Avatar, Button, Modal, message, Badge } from 'antd';
+import { Layout, Menu, theme, Breadcrumb, Avatar, Button, Modal, message} from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 
 

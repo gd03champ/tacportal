@@ -36,7 +36,8 @@ app.use((req, res, next) => {
 
 
 // Connect to mongoose
-mongoose.connect('mongodb://127.0.0.1:27017/tacportal')
+//mongoose.connect('mongodb://127.0.0.1:27017/tacportal')
+mongoose.connect('mongodb+srv://gd03champ:gd03champ@atlas-cluster.prpet6p.mongodb.net/tacportal')
     .then(() => console.log('MongoDB connected successfully! 🍃'))
     .catch(err => console.error('Error connecting to MongoDB:', err));
 
