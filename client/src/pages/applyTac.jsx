@@ -13,7 +13,8 @@ const { Option } = Select;
 const fileUploadProps = {
   name: 'file',
   multiple: false,
-  action: 'http://localhost:3001/api/upload',
+  //action: 'http://localhost:3001/api/upload',
+  action: 'https://tacportal.onrender.com/api/upload',
   onChange(info) {
     const { status } = info.file;
     if (status !== 'uploading') {

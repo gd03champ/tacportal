@@ -18,6 +18,7 @@ import updateTac from './handlers/updateTac.js';
 import bookAppointment from './handlers/bookAppointment.js';
 import getAnalytics from './handlers/getAnalytics.js';
 import getReviews from './handlers/getReviews.js';
+import fs from 'fs';
 
 //initiating express app
 const app = express();
@@ -45,7 +46,11 @@ mongoose.connect('mongodb+srv://gd03champ:gd03champ@atlas-cluster.prpet6p.mongod
 // Configure Multer to handle file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Specify the directory for storing files
+    const uploadDir = 'uploads/';
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir);
+    }
+    cb(null, uploadDir); // Specify the directory for storing files
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname); // Keep original filename
