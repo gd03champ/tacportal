@@ -14,7 +14,8 @@ const fileUploadProps = {
   name: 'file',
   multiple: false,
   //action: 'http://localhost:3001/api/upload',
-  action: 'https://tacportal.onrender.com/api/upload',
+  //action: 'https://tacportal.onrender.com/api/upload',
+  action: `${process.env.REACT_APP_API_URL}api/upload`,
   onChange(info) {
     const { status } = info.file;
     if (status !== 'uploading') {

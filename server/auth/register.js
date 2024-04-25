@@ -3,6 +3,9 @@ import bcrypt from 'bcrypt';
 
 import User from '../models/User.js';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 const register = async (req, res) => {
     try {
         const { 
@@ -34,7 +37,7 @@ const register = async (req, res) => {
         const token = jwt.sign({ 
             id: newUser._id, 
             email: newUser.email 
-        }, process.env.JWT_SECRET || 'mySecretKey');
+        }, process.env.JWT_SECRET);
         return res.json({token, email});
     }
     catch (err) {

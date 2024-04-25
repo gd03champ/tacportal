@@ -1,0 +1,378 @@
+[{
+  "_id": {
+    "$oid": "6617a34a05e9dbe714972ed6"
+  },
+  "title": "LLM4SQL",
+  "description": "Bridging the gap between AI and DBMS",
+  "domain": "software",
+  "studentsCount": 1,
+  "students": [
+    {
+      "rollNumber": "7376211cs146",
+      "techStack": "backend",
+      "_id": {
+        "$oid": "6617a34a05e9dbe714972ed7"
+      }
+    }
+  ],
+  "documentLink": "http://localhost:3001/static/documents/rc-upload-1712824856166-7.pdf",
+  "status": "approved",
+  "appliedDate": {
+    "$date": "2024-03-10T08:46:02.736Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-11T08:46:02.738Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-12T04:48:59.739Z"
+  },
+  "__v": 0,
+  "isAppointmentBooked": true,
+  "approvedDate": {
+    "$date": "2024-03-12T04:45:13.122Z"
+  },
+  "tacID": "TAC-3",
+  "appointmentDate": {
+    "$date": "2024-04-14T18:30:00.000Z"
+  },
+  "isEarlyAppointment": false
+},
+{
+  "_id": {
+    "$oid": "6617aa12cd4a1e133380a168"
+  },
+  "title": "nebula dashboard",
+  "description": "mutual funds portfolio",
+  "domain": "software",
+  "studentsCount": 2,
+  "students": [
+    {
+      "rollNumber": "7376211cs146",
+      "techStack": "backend",
+      "_id": {
+        "$oid": "6617aa12cd4a1e133380a169"
+      }
+    },
+    {
+      "rollNumber": "7376211cs143",
+      "techStack": "frontend",
+      "_id": {
+        "$oid": "6617aa12cd4a1e133380a16a"
+      }
+    }
+  ],
+  "documentLink": "http://localhost:3001/static/documents/rc-upload-1712826777407-13.pdf",
+  "status": "approved",
+  "appliedDate": {
+    "$date": "2024-03-11T09:14:58.102Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-11T09:14:58.104Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-12T04:49:46.542Z"
+  },
+  "__v": 0,
+  "isAppointmentBooked": true,
+  "approvedDate": {
+    "$date": "2024-04-12T04:45:08.780Z"
+  },
+  "tacID": "TAC-2",
+  "isEarlyAppointment": true,
+  "appointmentDate": {
+    "$date": "2024-04-18T18:30:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6618404341d89d605fe4b56d"
+  },
+  "title": "Hello World",
+  "description": "A simple hello world project",
+  "domain": "software",
+  "studentsCount": 1,
+  "students": [
+    {
+      "rollNumber": "7376211cs143",
+      "techStack": "backend",
+      "_id": {
+        "$oid": "6618404341d89d605fe4b56e"
+      }
+    }
+  ],
+  "documentLink": "http://localhost:3001/static/documents/rc-upload-1712865302567-3.pdf",
+  "status": "rejected",
+  "appliedDate": {
+    "$date": "2024-04-11T19:55:47.639Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-11T19:55:47.647Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-12T06:05:06.913Z"
+  },
+  "__v": 0,
+  "remarks": "hello world ?"
+},
+{
+  "_id": {
+    "$oid": "6617b289cd4a1e133380a203"
+  },
+  "title": "OneBIT",
+  "description": "All in one campus application",
+  "domain": "software",
+  "studentsCount": 1,
+  "students": [
+    {
+      "rollNumber": "7376211cs146",
+      "techStack": "frontend",
+      "_id": {
+        "$oid": "6617b289cd4a1e133380a204"
+      }
+    }
+  ],
+  "documentLink": "http://localhost:3001/static/documents/rc-upload-1712827795710-3.pdf",
+  "status": "rejected",
+  "appliedDate": {
+    "$date": "2024-04-11T09:51:05.984Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-11T09:51:05.988Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-11T16:05:54.856Z"
+  },
+  "__v": 0,
+  "remarks": "unrealistic"
+},
+{
+  "_id": {
+    "$oid": "66180b62341f2af8fdeb0224"
+  },
+  "title": "sample project",
+  "description": "sample project description",
+  "domain": "hardware",
+  "studentsCount": 1,
+  "students": [
+    {
+      "rollNumber": "7376211cs146",
+      "techStack": "prototyping",
+      "_id": {
+        "$oid": "66180b62341f2af8fdeb0225"
+      }
+    }
+  ],
+  "documentLink": "http://localhost:3001/static/documents/rc-upload-1712851223961-3.pdf",
+  "status": "initiated",
+  "appliedDate": {
+    "$date": "2024-04-11T16:10:10.592Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-11T16:10:10.598Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-12T04:36:22.577Z"
+  },
+  "__v": 0,
+  "tacID": "TAC-1"
+},
+{
+  "_id": {
+    "$oid": "6617ec4ea2262107303dd82f"
+  },
+  "title": "project 1",
+  "description": "descripion for project 1",
+  "domain": "hardware",
+  "studentsCount": 2,
+  "students": [
+    {
+      "rollNumber": "7376211cs001",
+      "techStack": "prototyping",
+      "_id": {
+        "$oid": "6617ec4ea2262107303dd830"
+      }
+    },
+    {
+      "rollNumber": "7376211cs143",
+      "techStack": "designing",
+      "_id": {
+        "$oid": "6617ec4ea2262107303dd831"
+      }
+    }
+  ],
+  "documentLink": "http://localhost:3001/static/documents/rc-upload-1712842834443-19.pdf",
+  "status": "rejected",
+  "appliedDate": {
+    "$date": "2024-04-11T13:57:34.786Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-11T13:57:34.796Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-11T16:43:14.052Z"
+  },
+  "__v": 0,
+  "remarks": "wrong file format"
+},
+{
+  "_id": {
+    "$oid": "661835c13d1c7832ae9b6ca0"
+  },
+  "title": "sample project 2",
+  "description": "sample project 2 description",
+  "domain": "software",
+  "studentsCount": 2,
+  "students": [
+    {
+      "rollNumber": "7376211cs001",
+      "techStack": "frontend",
+      "_id": {
+        "$oid": "661835c13d1c7832ae9b6ca1"
+      }
+    },
+    {
+      "rollNumber": "7376211cs143",
+      "techStack": "backend",
+      "_id": {
+        "$oid": "661835c13d1c7832ae9b6ca2"
+      }
+    }
+  ],
+  "documentLink": "http://localhost:3001/static/documents/rc-upload-1712862608468-3.pdf",
+  "status": "rejected",
+  "appliedDate": {
+    "$date": "2024-04-11T19:10:57.894Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-11T19:10:57.897Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-12T10:01:32.539Z"
+  },
+  "__v": 0,
+  "isAppointmentBooked": false,
+  "remarks": "sample rejection"
+},
+{
+  "_id": {
+    "$oid": "6618f04bf4f891742df850e9"
+  },
+  "title": "prod check 1",
+  "description": "production check tac 1",
+  "domain": "hardware",
+  "studentsCount": 2,
+  "students": [
+    {
+      "rollNumber": "7376211cs146",
+      "techStack": "prototyping",
+      "_id": {
+        "$oid": "6618f04bf4f891742df850ea"
+      }
+    },
+    {
+      "rollNumber": "7376211cs001",
+      "techStack": "designing",
+      "_id": {
+        "$oid": "6618f04bf4f891742df850eb"
+      }
+    }
+  ],
+  "documentLink": "https://tacportal.onrender.com/static/documents/rc-upload-1712910235658-7.pdf",
+  "status": "approved",
+  "appliedDate": {
+    "$date": "2024-04-12T08:26:51.301Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-12T08:26:51.303Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-12T09:59:32.566Z"
+  },
+  "__v": 0,
+  "approvedDate": {
+    "$date": "2024-04-12T09:46:17.820Z"
+  },
+  "tacID": "TAC-4",
+  "appointmentDate": null,
+  "isAppointmentBooked": true,
+  "isEarlyAppointment": true
+},
+{
+  "_id": {
+    "$oid": "6619018132b9a6a2c6a385c0"
+  },
+  "title": "prod check 2",
+  "description": "production environment check tach 2",
+  "domain": "software",
+  "studentsCount": 2,
+  "students": [
+    {
+      "rollNumber": "7376211cs146",
+      "techStack": "frontend",
+      "_id": {
+        "$oid": "6619018132b9a6a2c6a385c1"
+      }
+    },
+    {
+      "rollNumber": "7376211cs001",
+      "techStack": "backend",
+      "_id": {
+        "$oid": "6619018132b9a6a2c6a385c2"
+      }
+    }
+  ],
+  "documentLink": "https://tacportal.onrender.com/static/documents/rc-upload-1712914280306-3.pdf",
+  "status": "approved",
+  "appliedDate": {
+    "$date": "2024-04-12T09:40:17.104Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-12T09:40:17.114Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-12T09:45:09.328Z"
+  },
+  "__v": 0,
+  "approvedDate": {
+    "$date": "2024-04-12T09:45:09.326Z"
+  },
+  "tacID": "TAC-5"
+},
+{
+  "_id": {
+    "$oid": "6619581e574f64c4cc5733e3"
+  },
+  "title": "stud 2 tac 1",
+  "description": "sample tac of student 2",
+  "domain": "hardware",
+  "studentsCount": 2,
+  "students": [
+    {
+      "rollNumber": "7376211cs002",
+      "techStack": "designing",
+      "_id": {
+        "$oid": "6619581e574f64c4cc5733e4"
+      }
+    },
+    {
+      "rollNumber": "7376211cs001",
+      "techStack": "prototyping",
+      "_id": {
+        "$oid": "6619581e574f64c4cc5733e5"
+      }
+    }
+  ],
+  "documentLink": "https://tacportal.onrender.com/static/documents/rc-upload-1712936799849-4.jpg",
+  "status": "rejected",
+  "appliedDate": {
+    "$date": "2024-04-12T15:49:50.925Z"
+  },
+  "createdAt": {
+    "$date": "2024-04-12T15:49:50.929Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-12T15:50:49.286Z"
+  },
+  "__v": 0,
+  "remarks": "invalid document"
+}]

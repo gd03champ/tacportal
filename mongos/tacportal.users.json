@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "66166f811e5b8bb4f6740b53"
+  },
+  "rollno": "7376211cs001",
+  "email": "student1@bitsathy.ac.in",
+  "role": "student",
+  "name": "Student 1",
+  "password": "$2b$10$Hh0qBxN.RUJGT36/sOhGlOAGqCPa.8XujFaB1c/0JimDis8pt7Pum",
+  "department": "cse",
+  "createdAt": {
+    "$date": "2024-04-10T10:52:49.052Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-10T10:52:49.052Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661666ef1e5b8bb4f674092b"
+  },
+  "rollno": "7376211cs143",
+  "email": "dhyanesh.cs21@bitsathy.ac.in",
+  "role": "student",
+  "name": "Dhyaneesh",
+  "password": "$2b$10$7AWE2Oj1.XpGZBvmGayRBOLuK.Mk06VL3oqnbILnUm7teCUEZ7mGq",
+  "department": "cse",
+  "createdAt": {
+    "$date": "2024-04-10T10:16:15.089Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-10T10:16:15.089Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661669521e5b8bb4f6740952"
+  },
+  "rollno": "admin@1",
+  "email": "suganya@bitsathy.ac.in",
+  "role": "staff",
+  "name": "Suganya",
+  "password": "$2b$10$aIFA8dhN5BMgXJPTmQ3bU.8PzcephdU/BxtGTPHqHbjgA2.seZyvu",
+  "department": "it",
+  "createdAt": {
+    "$date": "2024-04-10T10:26:26.198Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-10T10:26:26.198Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6616816c1875e4009a6c305e"
+  },
+  "rollno": "7376211cs146",
+  "email": "gsnish25255@gmail.com",
+  "role": "student",
+  "name": "Ganish Deepak N",
+  "password": "$2b$10$6ccKAnetwVtT/.98YPRirezopphRMxnRsq5hfVoeuJLAHTqpzr6Li",
+  "department": "cse",
+  "createdAt": {
+    "$date": "2024-04-10T12:09:16.908Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-10T12:09:16.908Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "661957e3574f64c4cc5733ce"
+  },
+  "rollno": "7376211cs002",
+  "email": "student2@bitsathy.ac.in",
+  "role": "student",
+  "name": "student 2",
+  "password": "$2b$10$fVo0fFANAXiUz.OdTsafd.n6H1ntKvRnfEkBszp9WhNhax3FqEKeq",
+  "department": "cse",
+  "createdAt": {
+    "$date": "2024-04-12T15:48:51.476Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-12T15:48:51.476Z"
+  },
+  "__v": 0
+}]

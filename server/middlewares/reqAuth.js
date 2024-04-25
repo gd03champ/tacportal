@@ -1,6 +1,9 @@
 import BlackToken from "../models/BlackToken.js";
 import jwt from 'jsonwebtoken';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 const requireAuth = (req, res, next) => {
     const authHeader = req.headers.authorization;
   
@@ -10,7 +13,7 @@ const requireAuth = (req, res, next) => {
   
     const token = authHeader.split(' ')[1];
   
-    jwt.verify(token, 'mySecretKey', async (err, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
       if (err) return res.status(401).json({ message: 'Invalid token' });
   
       //check if token is black listed

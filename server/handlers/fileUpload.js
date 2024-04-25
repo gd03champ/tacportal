@@ -1,3 +1,7 @@
+//this logic is now in the server.js file and this code not imported anywhere
+//deprecated code
+
+
 import multer from 'multer';
 const app = express();
 const port = 3000; // Or any port you prefer

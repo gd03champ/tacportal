@@ -20,6 +20,10 @@ import getAnalytics from './handlers/getAnalytics.js';
 import getReviews from './handlers/getReviews.js';
 import fs from 'fs';
 
+//load env variables
+import dotenv from 'dotenv';
+dotenv.config();
+
 //initiating express app
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,7 +42,8 @@ app.use((req, res, next) => {
 
 // Connect to mongoose
 //mongoose.connect('mongodb://127.0.0.1:27017/tacportal')
-mongoose.connect('mongodb+srv://gd03champ:gd03champ@atlas-cluster.prpet6p.mongodb.net/tacportal')
+//mongoose.connect('mongodb+srv://gd03champ:gd03champ@atlas-cluster.prpet6p.mongodb.net/tacportal')
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('MongoDB connected successfully! 🍃'))
     .catch(err => console.error('Error connecting to MongoDB:', err));
 
@@ -99,7 +104,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   const response = { 
     filename: req.file.filename, 
     //url: `http://localhost:${port}/static/documents/${req.file.filename}` };
-    url: `https://tacportal.onrender.com/static/documents/${req.file.filename}` };
+    url: `${process.env.HOST_URL}/static/documents/${req.file.filename}` };
 
   res.json(response);
 });
