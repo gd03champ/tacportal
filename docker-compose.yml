@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  tacportal-db:
+    image: mongodb/mongodb-community-server:latest
+    container_name: db
+    ports:
+      - "3002:27017"
+
+  tacportal-api:
+    image: gd03/tacportal:api
+    container_name: api
+    ports:
+      - "3001:8080"
+
+  tacportal-client:
+    image: gd03/tacportal:client
+    container_name: client
+    ports:
+      - "3000:3000"
