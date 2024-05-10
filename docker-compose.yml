@@ -1,21 +1,50 @@
 version: '3'
 
+volumes:
+  tacportal-db-data:
+    driver: local
+
 services:
 
+  # mongodb database container with a volume
   tacportal-db:
     image: mongodb/mongodb-community-server:latest
     container_name: db
-    ports:
-      - "3002:27017"
+#    ports:
+#      - "3002:27017"
+    volumes:
+      - tacportal-db-data:/data/db
 
+  # api container exposing port 8080 (api) and 9101 (prometheus metrics)
   tacportal-api:
     image: gd03/tacportal:api
     container_name: api
+    environment:
+      - MONGODB_URI=mongodb://tacportal-db:27017/tacportal
+    depends_on:
+      - tacportal-db
     ports:
       - "3001:8080"
+      - "9101:9100"
 
+  # client container exposing port 4000 (web app) and 9102 (prometheus metrics)
   tacportal-client:
     image: gd03/tacportal:client
     container_name: client
+    depends_on:
+      - tacportal-api
     ports:
-      - "3000:3000"
+      - "4000:3000"
+      - "9102:9100"
+
+
+# exporter for mongodb database container exposing port 9103 (prometheus metrics)
+  mongodb-exporter:
+    image: bitnami/node-exporter:latest
+    container_name: db-exporter
+    environment:
+    - MONGODB_URI=mongodb://tacportal-db:27017
+    ports:
+    - 9103:9100
+    depends_on:
+       - tacportal-db
