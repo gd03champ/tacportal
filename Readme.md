@@ -43,8 +43,9 @@ To run the project, you need to have Docker and Docker Compose installed on your
 ```
 docker-compose up -d
 ```
+![image](https://github.com/gd03champ/tacportal/assets/63779654/4aba333e-92c4-4146-8cea-093f6f4009fe)
 
-This command will start all three components in their own Docker containers. The client will be accessible at `http://localhost:4000`, and the server will be accessible at `http://localhost:3001`.
+This single command will do magic by starting all three components in their own Docker containers. The client will be accessible at `http://localhost:4000`, and the server will be accessible at `http://localhost:3001`.
 
 ## Building Docker Images
 
@@ -108,20 +109,31 @@ TacPortal is a comprehensive application with a variety of features designed to 
 
 - **JWT User Authentication**: TacPortal uses JSON Web Tokens (JWT) for user authentication.
 
+![image](https://github.com/gd03champ/tacportal/assets/63779654/88f69b9f-648a-441e-ac42-6900f6cc893a)
+
 - **User and Admin Dashboard**: The application provides separate dashboards for users and administrators. The user dashboard provides access to personal account information and application features, while the admin dashboard offers a comprehensive view of all user accounts and application data.
 
+![image](https://github.com/gd03champ/tacportal/assets/63779654/273f2d45-ae8f-4acf-a8eb-ccd9ae34139d)
+
 - **Tac Form Application**: Users can fill out and submit Tac forms through the application. The form data is stored in the MongoDB database and can be accessed by administrators for review.
+
+![image](https://github.com/gd03champ/tacportal/assets/63779654/b8688d9a-c970-4e31-8f96-989938e304e2)
     
 - **Admin Approval/Rejection with Remarks**: Administrators can review submitted Tac forms and either approve or reject them. They can also provide remarks on each form, offering feedback or requesting additional information from the user.
-    
+
+![image](https://github.com/gd03champ/tacportal/assets/63779654/95941312-6844-4213-a5de-a21c4aad3455)
+
 - **Appointment Booking**: Users have the ability to book appointments through the application one the tac is approved
+
+![image](https://github.com/gd03champ/tacportal/assets/63779654/f0a738a8-028c-4980-914a-a75c49f2f48e)
     
 - **Review Forms and Pipeline**: The application provides a pipeline for reviewing and processing Tac forms. This includes stages for initial submission, review, approval/rejection, and final processing.
     
 - **Ant Design UI**: The user interface of the application is built using Ant Design, a popular React UI library. This provides a modern and intuitive user experience.
     
 - **Well-Structured Development and Code**: The application follows best practices for MERN stack development. The codebase is well-structured and modular, making it easy to understand and maintain.
-    
+
+![image](https://github.com/gd03champ/tacportal/assets/63779654/f4ea5d8e-99d4-4591-aa7b-bcd0e199ea73)
 
 ## Workflow
 
@@ -136,6 +148,8 @@ The general workflow of the application is as follows:
 7. User can book appointments on approved Tacs
 8. On booking date is confirmed, review is scheduled and Tac is reviewed with a review form.
 9. Reward points are provided to user based on the review
+
+![Untitled](https://github.com/gd03champ/tacportal/assets/63779654/446d597c-7222-4ae1-af22-93eb973c6afa)
 
 This workflow provides a seamless experience for both users and administrators, making TacPortal an efficient and effective tool for managing Tac form submissions and appointment bookings.
 
