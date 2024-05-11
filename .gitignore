@@ -29,6 +29,7 @@
 /client/yarn-error.log*
 
 /client/.firebase/*
+/client/.firebaserc
 
 
 # Node.js
