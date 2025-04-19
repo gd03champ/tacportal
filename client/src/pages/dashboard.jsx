@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { bookAppointment, getTacs, updateTac } from "../handlers/apiHandlers";
-import { Card, Badge, Dropdown, Button, Menu, Row, Col, message, Tabs, Modal, DatePicker, Input } from "antd";
-import { FileOutlined, DeleteOutlined, CheckOutlined, TeamOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
+import { Card, Badge, Dropdown, Button, Menu, Row, Col, message, Tabs, Modal, DatePicker, Input, Table, Radio, Tag } from "antd";
+import { FileOutlined, DeleteOutlined, CheckOutlined, TeamOutlined, ExclamationCircleOutlined, AppstoreOutlined, UnorderedListOutlined } from "@ant-design/icons";
 const { TabPane } = Tabs;
 const { TextArea } = Input;
 
@@ -12,6 +12,7 @@ const Dashboard = (props) => {
   const [tacs, setTacs] = useState([]);
   const [activeTab, setActiveTab] = useState("all");
   const [bookingDate, setBookingDate] = useState(null);
+  const [viewMode, setViewMode] = useState("card"); // 'card' or 'table'
 
   useEffect(() => {
     handleGetTacs();
@@ -241,7 +242,11 @@ const Dashboard = (props) => {
               <Button
                 type="default"
                 icon={<FileOutlined />}
-                onClick={() => window.open(tac.documentLink, "_blank")}
+                onClick={() => {
+                  // Replace https: with http: to fix SSL errors
+                  const documentUrl = tac.documentLink.replace('https:', 'http:');
+                  window.open(documentUrl, "_blank");
+                }}
                 style={{ marginLeft: "8px" }}
               >
                 Document
@@ -325,36 +330,163 @@ const Dashboard = (props) => {
     );
   };
 
+  // Table columns definition
+  const columns = [
+    {
+      title: 'Title',
+      dataIndex: 'title',
+      key: 'title',
+    },
+    {
+      title: 'Domain',
+      dataIndex: 'domain',
+      key: 'domain',
+      render: (domain) => <Tag color="#001529">{domain}</Tag>,
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status',
+      render: (status) => <Tag color={getStatusColor(status)}>{status}</Tag>,
+    },
+    {
+      title: 'Applied Date',
+      key: 'appliedDate',
+      render: (_, record) => (
+        <span>
+          {new Date(record.appliedDate).getDate()}/
+          {new Date(record.appliedDate).getMonth()}/
+          {new Date(record.appliedDate).getFullYear()}
+        </span>
+      ),
+    },
+    {
+      title: 'Team',
+      key: 'team',
+      render: (_, record) => (
+        <Dropdown overlay={renderStudentsDropdown(record.students)}>
+          <Button icon={<TeamOutlined />} type="dashed">View Team</Button>
+        </Dropdown>
+      ),
+    },
+    {
+      title: 'Document',
+      key: 'document',
+      render: (_, record) => (
+        <Button
+          type="default"
+          icon={<FileOutlined />}
+          onClick={() => {
+            const documentUrl = record.documentLink.replace('https:', 'http:');
+            window.open(documentUrl, "_blank");
+          }}
+        >
+          Document
+        </Button>
+      ),
+    },
+    {
+      title: 'Actions',
+      key: 'actions',
+      render: (_, record) => (
+        <div style={{ display: 'flex', gap: '8px' }}>
+          {record.status === 'approved' && userRole === "student" && !record.isAppointmentBooked && (
+            <Button
+              style={{ backgroundColor: '#001529' }}
+              type="primary"
+              onClick={() => handleBookAppointment(record._id)}
+            >
+              Book
+            </Button>
+          )}
+          {record.status === 'initiated' && userRole === 'student' && (
+            <Button
+              onClick={() => handleCancelTac(record._id)}
+              danger
+              icon={<DeleteOutlined />}
+            >
+              Cancel
+            </Button>
+          )}
+          {record.status === 'initiated' && userRole === 'staff' && (
+            <>
+              <Button
+                onClick={() => handleApproveTac(record._id)}
+                type="text"
+                icon={<CheckOutlined />}
+                style={{ color: "green" }}
+              >
+                Approve
+              </Button>
+              <Button
+                onClick={() => handleRejectTac(record._id)}
+                danger
+                icon={<DeleteOutlined />}
+              >
+                Reject
+              </Button>
+            </>
+          )}
+        </div>
+      ),
+    },
+  ];
+
+  // Render the table view
+  const renderTableView = (tacs) => {
+    return (
+      <Table
+        dataSource={tacs.reverse()}
+        columns={columns}
+        rowKey="_id"
+        pagination={{ pageSize: 10 }}
+      />
+    );
+  };
+
+  // Render the card view
+  const renderCardView = (tacs) => {
+    return (
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Row gutter={16}>
+          {tacs.reverse().map((tac) => renderTac(tac))}
+        </Row>
+      </div>
+    );
+  };
+
   return (
     <div>
+      <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'flex-end' }}>
+        <Radio.Group 
+          value={viewMode} 
+          onChange={(e) => setViewMode(e.target.value)}
+          buttonStyle="solid"
+        >
+          <Radio.Button value="card"><AppstoreOutlined /> Card View</Radio.Button>
+          <Radio.Button value="table"><UnorderedListOutlined /> Table View</Radio.Button>
+        </Radio.Group>
+      </div>
       <Tabs activeKey={activeTab} onChange={handleTabChange}>
         <TabPane tab="All" key="all">
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Row gutter={16}>
-              {filterTacsByStatus("all").reverse().map((tac) => (renderTac(tac)))}
-            </Row>
-          </div>
+          {viewMode === "card" 
+            ? renderCardView(filterTacsByStatus("all"))
+            : renderTableView(filterTacsByStatus("all"))}
         </TabPane>
         <TabPane tab="Initiated" key="initiated">
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Row gutter={16}>
-              {filterTacsByStatus("initiated").reverse().map((tac) => (renderTac(tac)))}
-            </Row>
-          </div>
+          {viewMode === "card"
+            ? renderCardView(filterTacsByStatus("initiated"))
+            : renderTableView(filterTacsByStatus("initiated"))}
         </TabPane>
         <TabPane tab="Approved" key="approved">
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Row gutter={16}>
-              {filterTacsByStatus("approved").reverse().map((tac) => (renderTac(tac)))}
-            </Row>
-          </div>
+          {viewMode === "card"
+            ? renderCardView(filterTacsByStatus("approved")) 
+            : renderTableView(filterTacsByStatus("approved"))}
         </TabPane>
         <TabPane tab="Rejected" key="rejected">
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Row gutter={16}>
-              {filterTacsByStatus("rejected").reverse().map((tac) => (renderTac(tac)))}
-            </Row>
-          </div>
+          {viewMode === "card"
+            ? renderCardView(filterTacsByStatus("rejected"))
+            : renderTableView(filterTacsByStatus("rejected"))}
         </TabPane>
       </Tabs>
       <Button

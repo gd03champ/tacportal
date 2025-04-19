@@ -19,6 +19,7 @@ import {
   UserOutlined, HomeOutlined, AppstoreOutlined, FileAddOutlined, 
   LogoutOutlined, LoginOutlined, UserAddOutlined, EditOutlined
 } from '@ant-design/icons';
+import NotificationCenter from './components/NotificationCenter';
 import { Layout, Menu, theme, Breadcrumb, Avatar, Button, Modal, message} from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -224,12 +225,15 @@ const App = () => {
           </div>
           <div>
             {loggedIn ? (
-              <>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ marginRight: '20px' }}>
+                  <NotificationCenter />
+                </div>
                 <Button type="dashed" id="userAvatar" style={{ margin: '16px', display: 'flex', alignItems: 'center' }}>
                   <span style={{ margin: '10px' }}>{name}</span>
                   <Avatar size="small" icon={<UserOutlined />} />
                 </Button>
-              </>
+              </div>
             ) : (
               <div>
                 <Button

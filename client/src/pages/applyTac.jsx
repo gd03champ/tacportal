@@ -15,7 +15,7 @@ const fileUploadProps = {
   multiple: false,
   //action: 'http://localhost:3001/api/upload',
   //action: 'https://tacportal.onrender.com/api/upload',
-  action: `${process.env.REACT_APP_API_URL}api/upload`,
+  action: `${process.env.REACT_APP_API_URL}/api/upload`,
   onChange(info) {
     const { status } = info.file;
     if (status !== 'uploading') {
@@ -71,10 +71,24 @@ const ApplyTac = (props) => {
     const title = values.title;
     const description = values.description;
     const documentLink = values.documents.file.response.url;
-    //const domain = domain;
-    //const students = students;
-    //console.log("Title: ", title, "\nDescription: ", description, "\nDomain: ", domain, "\nDocument Link: ", documentLink);
-    //console.log(students);
+    
+    // Validate students data
+    if (!students.length) {
+      message.error("Please add at least one student");
+      return;
+    }
+    
+    // Check if any student has empty fields
+    const hasEmptyFields = students.some(student => 
+      !student.rollNumber || !student.techStack
+    );
+    
+    if (hasEmptyFields) {
+      message.error("Please fill all student fields (Roll Number and Tech Stack)");
+      return;
+    }
+    
+    console.log("Submitting with students:", students);
     
     try {
       await applyTac(
@@ -87,7 +101,7 @@ const ApplyTac = (props) => {
       message.success("tac applied successfully.");
       setScreen('dashboard');
     } catch (err) {
-      message.error(err);
+      message.error(err.message || "Failed to apply TAC");
     }
   };
 

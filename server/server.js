@@ -18,6 +18,8 @@ import updateTac from './handlers/updateTac.js';
 import bookAppointment from './handlers/bookAppointment.js';
 import getAnalytics from './handlers/getAnalytics.js';
 import getReviews from './handlers/getReviews.js';
+import getNotifications from './handlers/getNotifications.js';
+import markNotificationRead from './handlers/markNotificationRead.js';
 import fs from 'fs';
 
 //load env variables
@@ -44,7 +46,8 @@ app.use((req, res, next) => {
 //mongoose.connect('mongodb://127.0.0.1:27017/tacportal')
 //mongoose.connect('mongodb+srv://gd03champ:gd03champ@atlas-cluster.prpet6p.mongodb.net/tacportal')
 console.log("connecting to: "+process.env.MONGODB_URI);
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect('mongodb://127.0.0.1:27017/tacportal')
+//mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('MongoDB connected successfully! 🍃'))
     .catch(err => console.error('Error connecting to MongoDB:', err));
 
@@ -95,6 +98,10 @@ app.post('/api/bookAppointment', requireAuth, bookAppointment);
 app.post('/api/getReviews', requireAuth, getReviews);
 
 app.post('/api/getAnalytics', requireAuth, getAnalytics);
+
+// Notification endpoints
+app.post('/api/getNotifications', requireAuth, getNotifications);
+app.post('/api/markNotificationRead', requireAuth, markNotificationRead);
 
 // document upload endpoint
 app.post('/api/upload', upload.single('file'), (req, res) => {
